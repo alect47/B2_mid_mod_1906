@@ -18,7 +18,6 @@ describe 'When user visits author show page' do
       click_link(@stephen.name)
     end
 
-    # save_and_open_page
     expect(current_path).to eq("/authors/#{@stephen.id}")
     expect(page).to have_content(@stephen.name)
     expect(page).to have_content(@stand.title, @gunslinger.title)

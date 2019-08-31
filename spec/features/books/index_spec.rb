@@ -19,19 +19,14 @@ describe 'When user visits book index' do
         expect(page).to have_content("Title: #{@stand.title}")
         expect(page).to have_content("Page count: #{@stand.page_count}")
         expect(page).to have_content("Publication year: #{@stand.publication_year}")
-        expect(page).to have_content("Author: #{@stand.authors.name}")
+        expect(page).to have_content(@stand.authors.name)
       end
 
       within "#book-#{@gunslinger.id}" do
         expect(page).to have_content("Title: #{@gunslinger.title}")
         expect(page).to have_content("Page count: #{@gunslinger.page_count}")
         expect(page).to have_content("Publication year: #{@gunslinger.publication_year}")
-        expect(page).to have_content("Author: #{@gunslinger.authors.name}")
+        expect(page).to have_content(@gunslinger.authors.name)
       end
-
-      click_on(@stand.authors.name)
-      expect(current_path).to eq("/authors/#{@stephen.id}")
-
-
     end
 end

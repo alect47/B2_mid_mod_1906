@@ -28,5 +28,10 @@ describe 'When user visits book index' do
         expect(page).to have_content("Publication year: #{@gunslinger.publication_year}")
         expect(page).to have_content("Author: #{@gunslinger.authors.name}")
       end
+
+      click_on(@stand.authors.name)
+      expect(current_path).to eq("/authors/#{@stephen.id}")
+
+
     end
 end

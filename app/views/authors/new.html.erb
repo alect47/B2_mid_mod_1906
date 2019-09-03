@@ -1,0 +1,4 @@
+<%= form_tag "/authors", method: :post do %>
+  <%= text_field_tag :name, nil, placeholder: "Name" %>
+  <%= submit_tag "Create Author" %>
+<% end %>

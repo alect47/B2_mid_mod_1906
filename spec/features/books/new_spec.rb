@@ -12,26 +12,23 @@ describe 'When user visits book index' do
     @steve.books << @gunslinger
   end
 
-  it "they can add a new book" do
-    visit "/authors/#{@stephen.id}"
-    expect(page).to have_link("New Book")
-    click_link("New Book")
-    expect(current_path).to eq("/authors/#{@stephen.id}/books/new")
+  it "they can add a new author" do
+    visit "/authors"
+    expect(page).to have_content(@steve.name)
+    expect(page).to have_content(@stephen.name)
+    expect(page).to have_content(@stephen.book_count)
+    expect(page).to have_content(@steve.book_count)
+    expect(page).to have_link("New Author")
+    click_link("New Author")
+    expect(current_path).to eq("/authors/new")
 
-    title = "Wizard and Glass"
-    page_count = 720
-    publication_year = 2001
+    name = "Isabelle"
 
-    fill_in :title, with: title
-    fill_in :page_count, with: page_count
-    fill_in :publication_year, with: publication_year
-    click_button "Create Book"
+    fill_in :name, with: name
+    click_button "Create Author"
 
-    new_book = Book.last
-    expect(current_path).to eq("/authors/#{@stephen.id}")
+    expect(current_path).to eq("/authors")
 
-    expect(new_book.title).to eq(title)
-    expect(new_book.page_count).to eq(page_count)
-    expect(new_book.publication_year).to eq(publication_year)
+    expect(page).to have_content(name)
     end
   end

@@ -1,0 +1,6 @@
+<% @authors.each do |author| %>
+  <%= author.name %>
+  <%= author.book_count  %>
+<% end %>
+
+<%= link_to "New Author", "/authors/new" %>

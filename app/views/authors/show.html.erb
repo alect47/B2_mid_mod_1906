@@ -1,9 +1,11 @@
-<h1><%= @author.name %></h1>
-<section class="book-list">
-  <p>All Books: </p>
-  <% @author.books.each do |book| %>
-    <p><%= book.title %></p>
-  <% end %>
-  <p>Average pages: <%= @average_pages.round(2) %></p>
-</section>
+  <h1><%= @author.name %></h1>
+<% if @author.has_books? %>
+  <section class="book-list">
+    <p>All Books: </p>
+    <% @author.books.each do |book| %>
+      <p><%= book.title %></p>
+    <% end %>
+    <p>Average pages: <%= @average_pages.round(2) %></p>
+  </section>
+<% end %>
 <%= link_to "New Book", "/authors/#{@author.id}/books/new" %>

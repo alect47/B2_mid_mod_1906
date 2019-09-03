@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
 
   def show
-    @author = Author.find(params[:author_id])
+    @author = Author.find(params[:id])
     @average_pages = @author.average_pages
   end
 

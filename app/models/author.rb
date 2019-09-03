@@ -6,4 +6,12 @@ class Author < ApplicationRecord
   def average_pages
     books.average(:page_count)
   end
+
+  def book_count
+    books.count
+  end
+
+  def has_books?
+    books.count > 0
+  end
 end

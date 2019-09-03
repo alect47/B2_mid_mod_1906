@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Author.destroy_all
+Book.destroy_all
+
+stephen = Author.create(name: "Stephen King")
+isabelle = Author.create(name: "Isabelle Allende")
+stand = Book.create(title: "The Stand", page_count: 740, publication_year: 1994 )
+gunslinger = Book.create(title: "The Gunslinger", page_count: 840, publication_year: 1996 )
+house = Book.create(title: "House of spirits", page_count: 240, publication_year: 1992 )
+
+stephen.books << stand
+stephen.books << gunslinger
+isabelle.books << house

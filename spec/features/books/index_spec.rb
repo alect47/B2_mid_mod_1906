@@ -10,6 +10,11 @@ describe 'When user visits book index' do
     @stephen.books << @stand
     @stephen.books << @gunslinger
     @steve.books << @gunslinger
+    #Is there a way to attribute same book to multiple authors without doing this?
+    
+    @isabelle = Author.create(name: "Isabelle Allende")
+    @house = @isabelle.books.create(title: "The House of the Sprirts", page_count: 270, publication_year: 1981)
+    @house.authors <<  @steve
   end
 
     it "they see all books in system and info" do

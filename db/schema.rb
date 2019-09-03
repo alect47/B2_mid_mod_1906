@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 20190830173411) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "books_id"
-    t.index ["books_id"], name: "index_authors_on_books_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -38,12 +36,8 @@ ActiveRecord::Schema.define(version: 20190830173411) do
     t.integer "publication_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "authors_id"
-    t.index ["authors_id"], name: "index_books_on_authors_id"
   end
 
   add_foreign_key "author_books", "authors"
   add_foreign_key "author_books", "books"
-  add_foreign_key "authors", "books", column: "books_id"
-  add_foreign_key "books", "authors", column: "authors_id"
 end

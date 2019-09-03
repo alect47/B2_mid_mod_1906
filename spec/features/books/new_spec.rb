@@ -13,25 +13,22 @@ describe 'When user visits book index' do
   end
 
   it "they can add a new book" do
-    visit "/books"
-
+    visit "/authors/#{@stephen.id}"
     expect(page).to have_link("New Book")
     click_link("New Book")
-
-    expect(current_path).to eq("/books/new")
+    expect(current_path).to eq("/authors/#{@stephen.id}/books/new")
 
     title = "Wizard and Glass"
-    page_count = 1004
+    page_count = 720
     publication_year = 2001
 
     fill_in :title, with: title
     fill_in :page_count, with: page_count
     fill_in :publication_year, with: publication_year
-
     click_button "Create Book"
 
     new_book = Book.last
-    expect(current_path).to eq("/books")
+    expect(current_path).to eq("/authors/#{@stephen.id}")
 
     expect(new_book.title).to eq(title)
     expect(new_book.page_count).to eq(page_count)

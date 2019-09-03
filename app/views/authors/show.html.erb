@@ -6,3 +6,4 @@
   <% end %>
   <p>Average pages: <%= @average_pages.round(2) %></p>
 </section>
+<%= link_to "New Book", "/authors/#{@author.id}/books/new" %>

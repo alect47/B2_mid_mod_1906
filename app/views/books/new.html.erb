@@ -1,4 +1,4 @@
-<%= form_tag("/authors/#{@author_id}/books", method: :post) do %>
+<%= form_tag("/authors/#{@author.id}/books", method: :post) do %>
   <%= text_field_tag :title, nil, placeholder: "Title" %>
   <%= text_field_tag :page_count, nil, placeholder: "Page Count" %>
   <%= text_field_tag :publication_year, nil, placeholder: "Publication Year" %>

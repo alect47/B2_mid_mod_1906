@@ -5,12 +5,12 @@ class BooksController < ApplicationController
   end
 
   def new
-    @author_id = Author.find(params[:author_id]).id
+    @author = Author.find(params[:author_id])
   end
 
   def create
     @author = Author.find(params[:author_id])
-    book = @author.books.new(book_params)
+    book = @author.books.create(book_params)
     if book.save
       redirect_to "/authors/#{@author.id}"
     else
